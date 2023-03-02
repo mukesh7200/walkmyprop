@@ -1,0 +1,235 @@
+.header {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 111;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.nav-container {
+  width: 70%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-container>.navbar-logo {
+  font-size: 35px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-container>.navbar-menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.nav-container>.navbar-menus>.navbar-menus-list ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-container>.navbar-menus>.navbar-menus-list ul li {
+  margin-inline: 20px;
+}
+
+.nav-container>.navbar-menus>.navbar-menus-list ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+
+.header.fixed-header {
+  background: rgba(12, 3, 47, .8);
+  -webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  position: fixed;
+  top: 0;
+  padding: 20px 0;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  right: 0;
+}
+.header.sticky-header{
+  position: sticky;
+} 
+
+.navbar-menus-collapsed{
+  display: none;
+  cursor: pointer;
+}
+.navbar-menus-wrapper-list{
+  background-color: #010029;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 70%;
+}
+.navbar-menus-wrapper-list > ul{
+  list-style: none;
+  padding-left: 0;
+}
+.navbar-menus-wrapper-list > ul > li {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #000;
+  padding-left: 30px;
+}
+.navbar-menus-wrapper-list > ul > li:hover > a{
+  color: #9574e1;
+}
+.navbar-menus-wrapper-list > ul > li  a{
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+}
+.navbar-menus-wrapper-list > ul > li:last-child{
+  border-bottom: 1px solid #fff;
+}
+.navbar-menus-wrapper-social{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+
+
+
+
+
+/* media query */
+@media only screen and(min-width: 1200px) {
+  .nav-container {
+    max-width: 1140px;
+  }
+  .navbar-menus-wrapper-list{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 992px)  {
+  .nav-container {
+    max-width: 960px;
+  }
+  .navbar-menus-wrapper-list{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  .nav-container {
+    max-width: 720px;
+    width: 100%;
+  }
+  .navbar-menus-wrapper-list{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 576px) {
+  .nav-container {
+    max-width: 576px;
+    width: 100%;
+  }
+  .navbar-menus-list{
+    display: none;
+  }
+  .navbar-menus-collapsed{
+    display: block;
+  }
+  
+}
+
+@media only screen and (max-width: 576px){
+  .nav-container {
+    max-width: 540px;
+    width: 100%;
+  }
+  .navbar-menus-list{
+    display: none;
+  }
+  .navbar-menus-collapsed{
+    display: block;
+  }
+  
+}
