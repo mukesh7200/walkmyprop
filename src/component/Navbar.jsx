@@ -1,19 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+  const [mediaQ, setMediaQ] = useState(false);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+  
+  const toggleOpen = () => {
+    setIsToggleOpen(!isToggleOpen);
+  }
+
+useEffect(() => {
+  function handleResize() {
+    if(getWindowDimensions().width < 995){
+        setMediaQ(true);
+    }else{
+      setMediaQ(false);
+    }
+  }
+  window.addEventListener("resize", handleResize);
+  return() => window.removeEventListener("resize", handleResize);
+},[])
+  
   return (
     <header class="header">
         <div class="container">
-          <nav id="navigation1" class="navigation">
+          <nav id="navigation1" className={mediaQ ? "navigation navigation-portrait" : "navigation"}>
             <div class="nav-header">
               <a class="nav-brand" href="index-2.html">
                 <img style={{width:"90px"}} src={require("./../assets/images/walkmyproplogo.png")} alt="" />
                 
               </a>
-              <div class="nav-toggle"></div>
+              <div className="nav-toggle" onClick={() => toggleOpen()}></div>
             </div>
-            <div class="nav-menus-wrapper xs-menu">
+            <div className={ isToggleOpen ? "nav-menus-wrapper xs-menu nav-menus-wrapper-open" : "nav-menus-wrapper xs-menu"}>
               {/* <ul class="header-right align-to-right">
                 <li class="language">
                   <a href="#modal-popup-1" class="xs-modal-popup">
